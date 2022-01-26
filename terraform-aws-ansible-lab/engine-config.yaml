@@ -96,8 +96,15 @@
       become: false
       set_fact:
         devops_public_key: "{{ lookup('file', '/home/ec2-user/.ssh/id_rsa.pub') }}"
+        host_machine_public_key: "{{ lookup('file', '/home/ec2-user/.ssh/authorized_keys') }}"
       delegate_to: ansible-engine 
       when: inventory_hostname == 'ansible-engine'    
+
+    - name: Add Host machine public key to devops user
+      authorized_key:
+        user: devops
+        state: present
+        key: "{{ hostvars['ansible-engine']['host_machine_public_key'] }}"
 
     - name: Add Ansible Engine keys to authorized_keys of nodes
       authorized_key:
