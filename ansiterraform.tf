@@ -11,7 +11,7 @@ resource "aws_instance" "os1" {
   ami           = "ami-05803413c51f242b7"
   instance_type = "t2.micro"
   #security_groups = [launch-wizard-2]
-   key_name = "mykey1122"
+   #key_name = "mykey1122"
   tags = {
     Name = "TerraformOS"
   }
