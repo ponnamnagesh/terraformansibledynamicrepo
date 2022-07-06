@@ -29,7 +29,7 @@ resource "aws_instance" "ansible-engine" {
     connection {
       type        = "ssh"
       user        = "ec2-user"
-      private_key = file(pathexpand(var.ssh_key_pair))
+      #private_key = file(pathexpand(var.ssh_key_pair))
       host        = self.public_ip
     }
   }
