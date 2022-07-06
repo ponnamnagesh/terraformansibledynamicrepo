@@ -15,3 +15,10 @@ resource "aws_key_pair" "ec2loginkey" {
 output "ansible-engine" {
   value = aws_instance.ansible-engine.public_ip
 }
+
+terraform {
+  backend "s3" {
+    bucket = "great-name-terraform-state-2222"
+    region = "us-east-2"
+  }
+}
