@@ -1,7 +1,7 @@
 #defining the provider block
 provider "aws" {
-  region = "ap-south-1"
-  profile = "default"
+  region = "us-east-2"
+  ##profile = "default"
 	
 }
 
