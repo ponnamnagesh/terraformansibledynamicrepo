@@ -1,4 +1,4 @@
-#! /bin/bash
+ #! /bin/bash
 sudo amazon-linux-extras install -y epel
 sudo useradd devops
 echo -e 'devops\ndevops' | sudo passwd devops
