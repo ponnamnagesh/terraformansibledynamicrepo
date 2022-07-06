@@ -16,26 +16,26 @@ pipeline {
         }    
         stage ("Terraform Init") {
             steps {
-                sh ('cd terraform-aws-ansible-engine/')
+                //sh ('cd terraform-aws-ansible-engine/')
                 //sh ('sudo terraform init') 
                 sh ('terraform version && terraform init -input=false')
             }
         }
         stage ("Terraform Plan") {
             steps {
-                sh ('cd terraform-aws-ansible-engine/')
+                //sh ('cd terraform-aws-ansible-engine/')
                 sh ('sudo terraform plan') 
             }
         }
         stage ("Terraform Validate") {
             steps {
-                sh ('cd terraform-aws-ansible-engine/')
+                //sh ('cd terraform-aws-ansible-engine/')
                 sh ('sudo terraform validate -json') 
             }
         }
         stage ("Terraform Action") {
             steps {
-                sh ('cd terraform-aws-ansible-engine/')
+                //sh ('cd terraform-aws-ansible-engine/')
                 echo "Terraform action is --> ${action}"
                 sh ('sudo terraform ${action} --auto-approve') 
            }
