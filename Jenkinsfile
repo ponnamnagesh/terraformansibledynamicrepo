@@ -17,7 +17,8 @@ pipeline {
         stage ("Terraform Init") {
             steps {
                 sh ('cd terraform-aws-ansible-engine/')
-                sh ('sudo terraform init') 
+                //sh ('sudo terraform init') 
+                sh ('terraform version && terraform init -input=false')
             }
         }
         stage ("Terraform Plan") {
